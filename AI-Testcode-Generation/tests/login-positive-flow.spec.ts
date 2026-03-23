@@ -1,0 +1,36 @@
+import { test, expect, type Page } from '@playwright/test';
+
+import { LoginPage } from '../pages/loginPage';
+
+import { HomePage } from '../pages/HomePage';
+
+import { users } from '../fixtures/data';
+
+test.describe('Login positive flows', () => {
+
+  test('should handle login positive flow', async ({ page }: { page: Page }) => {
+
+    const login = new LoginPage(page);
+
+    // Initialization: open login
+
+    await login.open();
+
+    // User actions: fill credentials, submit
+
+    await login.username().fill(users.valid.username);
+
+    await login.password().fill(users.valid.password);
+
+    await login.submit().click();
+
+    // Verification: successful login → avatar visible
+
+    const home = new HomePage(page);
+
+    await expect(home.avatar()).toBeVisible();
+
+  });
+
+});
+ 

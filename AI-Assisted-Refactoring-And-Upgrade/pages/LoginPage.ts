@@ -1,17 +1,18 @@
+import { Page, expect } from '@playwright/test';
+
+
 class LoginPage {
- /
-  * @param {import('@playwright/test').Page} page
-  */
- constructor(page) {
+ private page: Page;
+ constructor(page: Page) {
    this.page = page;
    this.usernameInput = page.locator('#username');
    this.passwordInput = page.locator('#password');
    this.submitButton = page.locator('button[type=submit]');
    this.errorMessage = page.locator('.error');
  }
- /
-  * Navigate to the login screen.
-  */
+//  /
+//   * Navigate to the login screen.
+//   */
  async goto() {
    await this.page.goto('/login');
  }
