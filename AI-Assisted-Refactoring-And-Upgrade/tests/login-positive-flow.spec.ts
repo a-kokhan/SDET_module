@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 
-import { LoginPage } from '../pages/loginPage';
+import { LoginPage } from '../pages/LoginPage';
 
 import creds from '../utils/credentials';
 
@@ -74,4 +74,3 @@ test.describe('Login flow basics', () => {
 
   });
 });
- 

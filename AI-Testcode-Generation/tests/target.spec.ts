@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage';
+import { LoginPage } from '../pages/LoginPage';
 import creds from '../utils/credentials';
 
 // simple helper that assumes an app running on baseURL with /login
@@ -68,11 +68,11 @@ test.describe('Login flow basics', () => {
 
     await login.login('bad', 'bad');
 
-    await expect(login.errorMessage).toBeVisible();
+    await expect(login.errorMessage).toBe(true);
 
     await login.usernameInput.fill('');
 
-    await expect(login.errorMessage).toBeHidden();
+    await expect(login.errorMessage).toBe(false);
 
   });
 
@@ -84,7 +84,7 @@ test.describe('Login flow basics', () => {
 
     await login.login(creds.valid.username, 'incorrect');
 
-    await expect(login.errorMessage).toContainText('Invalid');
+    await expect(login.errorMessage).toContain('Invalid');
 
   });
 
@@ -94,7 +94,7 @@ test.describe('Login flow basics', () => {
 
     await login.login('unknown', creds.valid.password);
 
-    await expect(login.errorMessage).toContainText('not found');
+    await expect(login.errorMessage).toContain('not found');
 
   });
 
@@ -104,7 +104,7 @@ test.describe('Login flow basics', () => {
 
     await login.login('', creds.valid.password);
 
-    await expect(login.errorMessage).toContainText('required');
+    await expect(login.errorMessage).toContain('required');
 
   });
 
@@ -114,7 +114,7 @@ test.describe('Login flow basics', () => {
 
     await login.login(creds.valid.username, '');
 
-    await expect(login.errorMessage).toContainText('required');
+    await expect(login.errorMessage).toContain('required');
 
   });
 
@@ -124,7 +124,7 @@ test.describe('Login flow basics', () => {
 
     await login.login("' OR '1'='1", "' OR '1'='1");
 
-    await expect(login.errorMessage).toContainText('Invalid');
+    await expect(login.errorMessage).toContain('Invalid');
 
   });
 
