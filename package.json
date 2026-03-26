@@ -1,0 +1,13 @@
+{
+  "name": "playwright-ts-framework",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.38.0",
+    "typescript": "^5.1.6"
+  }
+}
