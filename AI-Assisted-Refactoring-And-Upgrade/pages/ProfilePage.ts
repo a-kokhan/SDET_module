@@ -1,5 +1,5 @@
 // path: src/pages/ProfilePage.ts
-import { Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 
 export class ProfilePage {
  private page: Page;

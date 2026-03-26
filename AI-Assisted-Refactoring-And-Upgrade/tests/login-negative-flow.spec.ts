@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage';
+import { LoginPage } from '../pages/LoginPage';
 import creds from '../utils/credentials';
 
 // simple helper that assumes an app running on baseURL with /login

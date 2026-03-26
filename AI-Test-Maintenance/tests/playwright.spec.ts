@@ -197,21 +197,21 @@
  * Test Case 2 (NAV-002) → Automated Test:
  * "should have working navigation links"
  * 
- * TEST STEPS IN CODE:
- * 1. page.goto('https://playwright.dev/')               → Navigate
- * 2. page.getByRole('link', { name: /getting.started/i }) → Find link
- * 3. gettingStartedLink.click()                          → Click link
- * 4. page.waitForURL(/.*docs\/intro.*/)                  → Wait for nav
- * 5. expect(page.url()).toContain('/docs')              → Verify URL
- * 6. page.goBack()                                       → Go back
- * 7. page.getByRole('link', { name: /discord/i })       → Find community
- * 
- * ASSERTIONS:
- * - Navigation links work correctly
- * - URLs change appropriately
- * - Browser history navigation works
- * - Community links are accessible
- */
+//  * TEST STEPS IN CODE:
+//  * 1. page.goto('https://playwright.dev/')               → Navigate
+//  * 2. page.getByRole('link', { name: /getting.started/i }) → Find link
+//  * 3. gettingStartedLink.click()                          → Click link
+//  * 4. page.waitForURL(/.*docs\/intro.*///)                  → Wait for nav
+//  * 5. expect(page.url()).toContain('/docs')              → Verify URL
+//  * 6. page.goBack()                                       → Go back
+//  * 7. page.getByRole('link', { name: /discord/i })       → Find community
+//  * 
+//  * ASSERTIONS:
+//  * - Navigation links work correctly
+//  * - URLs change appropriately
+//  * - Browser history navigation works
+//  * - Community links are accessible
+//  */
 
 // This file serves as documentation for manual test cases
 // For automated tests, see: main.navigation.spec.ts

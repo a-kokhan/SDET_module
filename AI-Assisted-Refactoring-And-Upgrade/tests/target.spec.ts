@@ -1,8 +1,6 @@
-const { test, expect } = require('@playwright/test');
-
-const { LoginPage } = require('../pages/loginPage');
-
-const creds = require('../utils/credentials');
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+import creds from '../utils/credentials';
 
 // simple helper that assumes an app running on baseURL with /login
 

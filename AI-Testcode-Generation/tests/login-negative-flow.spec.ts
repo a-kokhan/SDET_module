@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage';
+import { LoginPage } from '../pages/LoginPage';
 import creds from '../utils/credentials';
-import { testData } from '../fixtures/testData';
+import { users } from '../fixtures/data';
 // simple helper that assumes an app running on baseURL with /login
 test.describe('Login flow basics', () => {
  let login: LoginPage;
@@ -14,29 +14,29 @@ test.describe('Login flow basics', () => {
  // negative scenarios
  test('rejects login with wrong password', async () => {
    await login.login(creds.valid.username, 'incorrect');
-   await expect(login.errorMessage).toContainText('Invalid');
+   await expect(login.errorMessage).toContain('Invalid');
  });
  test('rejects login with unknown username', async () => {
    await login.login('unknown', creds.valid.password);
-   await expect(login.errorMessage).toContainText('not found');
+   await expect(login.errorMessage).toContain('not found');
  });
  test('shows validation when username empty', async () => {
    await login.login('', creds.valid.password);
-   await expect(login.errorMessage).toContainText('required');
+   await expect(login.errorMessage).toContain('required');
  });
  test('shows validation when password empty', async () => {
    await login.login(creds.valid.username, '');
-   await expect(login.errorMessage).toContainText('required');
+   await expect(login.errorMessage).toContain('required');
  });
  test('rejects SQL injection attempt', async () => {
    await login.login("' OR '1'='1", "' OR '1'='1");
-   await expect(login.errorMessage).toContainText('Invalid');
+   await expect(login.errorMessage).toContain('Invalid');
  });
  test('shows error message on invalid login', async () => {
    await login.open();
-   await login.username().fill(testData.invalid.username);
-   await login.password().fill(testData.invalid.password);
+   await login.username().fill(users.invalid.username);
+   await login.password().fill(users.invalid.password);
    await login.submit().click();
-   await expect(login.errorMessage()).toBeVisible();
+   await expect(login.errorMessage).toBe(true);
  });
 });

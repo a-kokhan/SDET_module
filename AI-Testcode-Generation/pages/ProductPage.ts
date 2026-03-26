@@ -8,7 +8,7 @@ export class ProductPage {
     }
 
     async addToCart() {
-        await this.page.getByRole('button', { name: 'Add to cart' });
+        return this.page.getByRole('button', { name: 'Add to cart' });
     }
 
     title() {
