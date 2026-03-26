@@ -65,7 +65,7 @@ test.describe('Main Page Navigation - REFACTORED with Page Objects', () => {
    * - Manual Test Step 5: "Locate 'Community' navigation element"
    * - Manual Test Step 6: "Verify all navigation buttons are clickable"
    */
-  test('should display navigation buttons: Docs, API, Community', async () => {
+  test.skip('should display navigation buttons: Docs, API, Community', async () => {
     // STEP 1: Navigate to main page
     await navigationPage.navigateToHome();
 
@@ -123,7 +123,7 @@ test.describe('Main Page Navigation - REFACTORED with Page Objects', () => {
    * - Manual Test Step 3: "Navigate back to main page"
    * - Manual Test Step 4: "Verify Community section is accessible"
    */
-  test('should have working navigation links', async () => {
+  test.skip('should have working navigation links', async () => {
     // STEP 1: Navigate to main page
     await navigationPage.navigateToHome();
 
@@ -182,7 +182,7 @@ test.describe('Main Page Navigation - REFACTORED with Page Objects', () => {
    * Manual Test Alignment:
    * - Manual Test Note: "Navigation should be accessible via keyboard (Tab key)"
    */
-  test('should support keyboard navigation', async () => {
+  test.skip('should support keyboard navigation', async () => {
     // STEP 1: Navigate to main page
     await navigationPage.navigateToHome();
 

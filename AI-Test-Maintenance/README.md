@@ -2,7 +2,7 @@
 
 This project demonstrates Playwright E2E testing using the Page Object Model (POM) pattern.
 
-## Project Structure
+## Project Structure  
 
 ```
 ai.test.maintenance/

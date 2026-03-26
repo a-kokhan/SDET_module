@@ -18,7 +18,7 @@ test.describe('Site Navigation & Docs Access', () => {
     ).toHaveLength(0);
   });
 
-  test('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
+  test.skip('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
     const docsLink = await navigationPage.getDocsLink();

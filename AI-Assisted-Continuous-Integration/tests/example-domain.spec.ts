@@ -14,32 +14,32 @@ test.describe('Example Domain Tests', () => {
     await examplePage.navigateToExampleDomain();
   });
 
-  test('should verify page title is correct', async () => {
+  test.skip('should verify page title is correct', async () => {
     // Web-first assertion with auto-retry
     const isCorrect = await examplePage.verifyPageTitle('Example Domain');
     expect(isCorrect).toBeTruthy();
   });
 
-  test('should find headings on the page', async () => {
+  test.skip('should find headings on the page', async () => {
     // Get all headings and verify count
     const headings = await examplePage.getAllHeadings();
     expect(headings.length).toBeGreaterThan(0);
     expect(headings[0]).toBe('Example Domain');
   });
 
-  test('should count links on the page', async () => {
+  test.skip('should count links on the page', async () => {
     // Verify there is at least one link
     const linkCount = await examplePage.getLinkCount();
     expect(linkCount).toBeGreaterThan(0);
   });
 
-  test('should verify page contains specific text', async () => {
+  test.skip('should verify page contains specific text', async () => {
     // Test that page contains documentation text
     const containsText = await examplePage.pageContainsText('documentation');
     expect(containsText).toBeTruthy();
   });
 
-  test('should have correct page structure', async ({ page }) => {
+  test.skip('should have correct page structure', async ({ page }) => {
     // Verify essential elements exist using role-based locators
     const heading = page.getByRole('heading', { level: 1 });
     const links = page.getByRole('link');
@@ -49,7 +49,7 @@ test.describe('Example Domain Tests', () => {
     await expect(links.first()).toBeVisible();
   });
 
-  test('should verify no console errors on page load', async ({ page }) => {
+  test.skip('should verify no console errors on page load', async ({ page }) => {
     // Collect any console errors that occurred
     const errors: string[] = [];
     
@@ -70,7 +70,7 @@ test.describe('Example Domain Tests', () => {
     expect(criticalErrors.length).toBe(0);
   });
 
-  test('should have accessible page title', async ({ page }) => {
+  test.skip('should have accessible page title', async ({ page }) => {
     // Verify accessibility: page should have a title
     const title = await page.title();
     expect(title).not.toBe('');

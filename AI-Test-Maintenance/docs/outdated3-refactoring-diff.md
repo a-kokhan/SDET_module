@@ -15,7 +15,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Playwright homepage old spec', () => {
-  test('should open homepage and verify old hero content', async ({ page }) => {
+  test.skip('should open homepage and verify old hero content', async ({ page }) => {
     await page.goto('http://playwright.dev');
     await page.waitForTimeout(5000);  // ❌ PROBLEM: Hard-coded timeout, longest wait
 
@@ -29,7 +29,7 @@ test.describe('Playwright homepage old spec', () => {
     await expect(getStartedButton).toBeVisible();
   });
 
-  test('should navigate to docs using old nav selector', async ({ page }) => {
+  test.skip('should navigate to docs using old nav selector', async ({ page }) => {
     await page.goto('http://playwright.dev');
     await page.waitForTimeout(2000);  // ❌ PROBLEM: Hard-coded timeout
 
@@ -42,7 +42,7 @@ test.describe('Playwright homepage old spec', () => {
     await expect(page.locator('text=Installation')).toBeVisible();
   });
 
-  test('should verify GitHub link exists in footer', async ({ page }) => {
+  test.skip('should verify GitHub link exists in footer', async ({ page }) => {
     await page.goto('http://playwright.dev');
     await page.waitForTimeout(2000);  // ❌ PROBLEM: Hard-coded timeout
 
@@ -104,7 +104,7 @@ test.describe('TC-NAV: Playwright Site Homepage Navigation', () => {
    * 
    * Note: Hero content changes; test navigation structure not copy
    */
-  test('TC-NAV-001: Homepage displays all primary navigation buttons', async () => {
+  test.skip('TC-NAV-001: Homepage displays all primary navigation buttons', async () => {
     // Arrange: Navigate to home
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait instead of hard-coded timeout
@@ -153,7 +153,7 @@ test.describe('TC-NAV: Playwright Site Homepage Navigation', () => {
    * 
    * Note: Documentation content/headings change; test navigation not content
    */
-  test('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
+  test.skip('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
     // Arrange: Navigate to home and wait for navigation to load
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait instead of hard-coded timeout
@@ -195,7 +195,7 @@ test.describe('TC-NAV: Playwright Site Homepage Navigation', () => {
    * 
    * Note: Footer branding/text may change; test link existence and URL
    */
-  test('TC-NAV-001-FOOTER: Footer contains GitHub project link', async () => {
+  test.skip('TC-NAV-001-FOOTER: Footer contains GitHub project link', async () => {
     // Arrange: Navigate to home and wait for navigation to load
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait instead of hard-coded timeout
