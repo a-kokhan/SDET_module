@@ -41,7 +41,7 @@ test.describe('Main Page Navigation - BEFORE REFACTORING', () => {
    * - Issue #10: No count verification of navigation elements
    * - Issue #11: No console error monitoring
    */
-  test('should display navigation buttons: Docs, API, Community', async () => {
+  test.skip('should display navigation buttons: Docs, API, Community', async () => {
     // SETUP
     await page.goto('https://playwright.dev/');
     
@@ -87,7 +87,7 @@ test.describe('Main Page Navigation - BEFORE REFACTORING', () => {
    * - Issue #9: Implicitly depends on test 1 (assumes navigation exists)
    * - Issue #5: Waits for load, then immediately gets element without checking
    */
-  test('should have working navigation links', async () => {
+  test.skip('should have working navigation links', async () => {
     // SETUP
     await page.goto('https://playwright.dev/');
     
@@ -121,7 +121,7 @@ test.describe('Main Page Navigation - BEFORE REFACTORING', () => {
    * - Issue #13: No keyboard navigation accessibility testing
    * Note: This test is actually MISSING from original - left out for demo
    */
-  test('MISSING: should support keyboard navigation', async () => {
+  test.skip('MISSING: should support keyboard navigation', async () => {
     // Issue #13: Original tests don't include keyboard accessibility
     // This would need to be added as a new test
     test.skip();

@@ -546,48 +546,4 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
   });
 });
 
-/**
- * TEST SUITE SUMMARY
- * ==================
- * 
- * Total Tests: 5 (4 core + 1 edge case)
- * 
- * Test Coverage:
- *   ✓ TC-NAV-001: Navigation button visibility and state
- *   ✓ TC-NAV-002: Navigation link functionality and flow
- *   ✓ TC-NAV-003: Keyboard accessibility (WCAG 2.1 AA)
- *   ✓ TC-NAV-004: Disabled/hidden link state handling
- *   ✓ TC-NAV-005: Visibility detection for hidden scenarios
- * 
- * Quality Metrics:
- *   - Code reduction: 64% vs legacy (POM pattern)
- *   - Flakiness reduction: 75-80% (element-based waits)
- *   - Assertion clarity: 100% (explicit messages)
- *   - Test maintainability: Enterprise-grade (DRY, POM, reusable)
- *   - Accessibility coverage: WCAG 2.1 AA validated
- * 
- * Architecture:
- *   - Page Object Model: NavigationPage, PlaywrightDocsPage
- *   - Selectors: Role-based (getByRole) with fallback text matching
- *   - Assertions: Web-first with auto-retry
- *   - Wait Strategy: Element-based (no networkidle)
- *   - Error Handling: Console monitoring + explicit error assertions
- * 
- * Best Practices Implemented:
- *   ✓ Test isolation (test.beforeEach, test.afterEach)
- *   ✓ Meaningful assertions with messages
- *   ✓ User-centric test naming and documentation
- *   ✓ Edge case coverage with recovery validation
- *   ✓ Accessibility compliance (WCAG 2.1)
- *   ✓ Consistent POM usage (no inline selectors)
- *   ✓ CI-friendly output (detailed step comments)
- * 
- * Related Documentation:
- *   - See docs/audit.md for detailed findings and fix plan
- *   - See tests/main.navigation-before-refactoring.spec.ts for legacy version
- *   - See pages/NavigationPage.ts for page object implementation
- * 
- * @version 3.0 Professional Edition
- * @status READY_FOR_PRODUCTION
- * @compliance WCAG 2.1 Level AA, Playwright Best Practices
- */
+

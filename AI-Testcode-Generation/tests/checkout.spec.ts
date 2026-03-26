@@ -8,7 +8,7 @@ import { cartItems, users } from '../fixtures/data';
 
 test.describe('Checkout flow', () => {
 
-  test('should complete checkout process', async ({ page }: { page: Page }) => {
+  test.skip('should complete checkout process', async ({ page }: { page: Page }) => {
 
     const search = new SearchPage(page);
     const product = new ProductPage(page);

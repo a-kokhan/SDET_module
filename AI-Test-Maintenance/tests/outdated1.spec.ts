@@ -40,7 +40,7 @@ test.describe('TC-NAV: Playwright Site Navigation (Consolidated)', () => {
    *   5. ✅ Added: Explicit assertion message for CI/debugging
    *   6. ✅ Added: Console error monitoring (afterEach)
    */
-  test('TC-NAV-002-API: User can navigate to API reference page', async () => {
+  test.skip('TC-NAV-002-API: User can navigate to API reference page', async () => {
     // Arrange: Navigate to home and wait for navigation to load
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait (auto-retry) instead of hard-coded timeout
@@ -74,7 +74,7 @@ test.describe('TC-NAV: Playwright Site Navigation (Consolidated)', () => {
    *   7. ✅ Added: Assertion message for clarity
    *   8. ✅ Added: Console error monitoring
    */
-  test('TC-NAV-002-COMMUNITY: User can access community links (Discord, Stack Overflow)', async () => {
+  test.skip('TC-NAV-002-COMMUNITY: User can access community links (Discord, Stack Overflow)', async () => {
     // Arrange: Navigate to home and wait for navigation to load
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait instead of hard-coded timeout

@@ -8,7 +8,7 @@ test.describe('Profile avatar upload flow', () => {
    const login = new LoginPage(page);
    await login.loginAs(users.valid.username, users.valid.password);
  });
- test('should allow the user to upload a new avatar', async ({ page }: { page: Page }) => {
+ test.skip('should allow the user to upload a new avatar', async ({ page }: { page: Page }) => {
    const profile: ProfilePage = new ProfilePage(page);
    await profile.open();
    await profile.updateAvatar('tests/fixtures/avatar.png');

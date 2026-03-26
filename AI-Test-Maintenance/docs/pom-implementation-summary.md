@@ -111,7 +111,7 @@ ai.test.maintenance/
 
 ### Test Execution (Before)
 ```typescript
-test('should display navigation', async ({ page }) => {
+test.skip('should display navigation', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   await page.waitForLoadState('load');
   await page.getByRole('contentinfo').or(page.locator('nav')).waitFor({ ... });
@@ -128,7 +128,7 @@ test('should display navigation', async ({ page }) => {
 
 ### Test Execution (After POM)
 ```typescript
-test('should display navigation', async () => {
+test.skip('should display navigation', async () => {
   await navigationPage.navigateToHome();
   await navigationPage.waitForNavigationToLoad();
   
@@ -215,7 +215,7 @@ test.describe('Additional Navigation Tests', () => {
     navigationPage.monitorConsoleErrors();
   });
 
-  test('API link should be working', async () => {
+  test.skip('API link should be working', async () => {
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
     

@@ -109,7 +109,7 @@ All functionality migrates to **`main-navigation-professional.spec.ts`** (5 comp
 
 ### Before (Broken)
 ```typescript
-test('should open API page from top navigation', async ({ page }) => {
+test.skip('should open API page from top navigation', async ({ page }) => {
   await page.goto('http://playwright.dev');
   await page.waitForTimeout(2500);  // Hard-coded, flaky
   await page.locator('nav >> text=API').click();  // Brittle text selector
@@ -120,7 +120,7 @@ test('should open API page from top navigation', async ({ page }) => {
 
 ### After (Professional Pattern)
 ```typescript
-test('TC-NAV-002-API: User can navigate to API reference page', async ({ page }) => {
+test.skip('TC-NAV-002-API: User can navigate to API reference page', async ({ page }) => {
   const navigationPage = new NavigationPage(page);
   
   // Arrange

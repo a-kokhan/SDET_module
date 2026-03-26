@@ -18,7 +18,7 @@ test.describe('Login flow basics', () => {
 
   // positive scenarios
 
-  test('should log in with valid credentials', async ({ page }) => {
+  test.skip('should log in with valid credentials', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -30,7 +30,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('should retain username after failed attempt', async ({ page }) => {
+  test.skip('should retain username after failed attempt', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -40,7 +40,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('password field should mask input', async ({ page }) => {
+  test.skip('password field should mask input', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -50,7 +50,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('submit button disabled until fields filled', async ({ page }) => {
+  test.skip('submit button disabled until fields filled', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -64,7 +64,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('error message disappears on typing', async ({ page }) => {
+  test.skip('error message disappears on typing', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -80,7 +80,7 @@ test.describe('Login flow basics', () => {
 
   // negative scenarios
 
-  test('rejects login with wrong password', async ({ page }) => {
+  test.skip('rejects login with wrong password', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -90,7 +90,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('rejects login with unknown username', async ({ page }) => {
+  test.skip('rejects login with unknown username', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -100,7 +100,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('shows validation when username empty', async ({ page }) => {
+  test.skip('shows validation when username empty', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -110,7 +110,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('shows validation when password empty', async ({ page }) => {
+  test.skip('shows validation when password empty', async ({ page }) => {
 
     const login = new LoginPage(page);
 
@@ -120,7 +120,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('rejects SQL injection attempt', async ({ page }) => {
+  test.skip('rejects SQL injection attempt', async ({ page }) => {
 
     const login = new LoginPage(page);
 

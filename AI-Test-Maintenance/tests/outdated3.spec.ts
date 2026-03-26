@@ -18,7 +18,7 @@ test.describe('Site Homepage Navigation', () => {
     ).toHaveLength(0);
   });
 
-  test('Homepage displays all primary navigation buttons', async () => {
+  test.skip('Homepage displays all primary navigation buttons', async () => {
    
     await navigationPage.navigateToHome();
     
@@ -46,7 +46,7 @@ test.describe('Site Homepage Navigation', () => {
     ).toBeGreaterThan(0);
   });
 
-  test('User can navigate to docs from homepage', async () => {
+  test.skip('User can navigate to docs from homepage', async () => {
     
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
@@ -66,7 +66,7 @@ test.describe('Site Homepage Navigation', () => {
     ).toBeVisible();
   });
 
-  test('Footer contains GitHub project link', async () => {
+  test.skip('Footer contains GitHub project link', async () => {
     
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();

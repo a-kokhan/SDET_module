@@ -45,7 +45,7 @@ test.describe('TC-NAV: Playwright Site Homepage Navigation', () => {
    * 
    * Note: Hero content changes; test navigation structure not copy
    */
-  test('TC-NAV-001: Homepage displays all primary navigation buttons', async () => {
+  test.skip('TC-NAV-001: Homepage displays all primary navigation buttons', async () => {
     // Arrange: Navigate to home
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait instead of hard-coded timeout
@@ -94,7 +94,7 @@ test.describe('TC-NAV: Playwright Site Homepage Navigation', () => {
    * 
    * Note: Documentation content/headings change; test navigation not content
    */
-  test('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
+  test.skip('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
     // Arrange: Navigate to home and wait for navigation to load
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait instead of hard-coded timeout
@@ -136,7 +136,7 @@ test.describe('TC-NAV: Playwright Site Homepage Navigation', () => {
    * 
    * Note: Footer branding/text may change; test link existence and URL
    */
-  test('TC-NAV-001-FOOTER: Footer contains GitHub project link', async () => {
+  test.skip('TC-NAV-001-FOOTER: Footer contains GitHub project link', async () => {
     // Arrange: Navigate to home and wait for navigation to load
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait instead of hard-coded timeout

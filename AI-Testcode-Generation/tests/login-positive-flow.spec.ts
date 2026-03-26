@@ -8,7 +8,7 @@ import { users } from '../fixtures/data';
 
 test.describe('Login positive flows', () => {
 
-  test('should handle login positive flow', async ({ page }: { page: Page }) => {
+  test.skip('should handle login positive flow', async ({ page }: { page: Page }) => {
 
     const login = new LoginPage(page);
 

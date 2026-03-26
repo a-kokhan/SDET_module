@@ -257,9 +257,9 @@ const gettingStartedLink = page.getByRole('link', { name: /getting\s*started/i }
 
 **Problem:**
 ```typescript
-test('should display navigation buttons...') { ... }
+test.skip('should display navigation buttons...') { ... }
 // Later...
-test('should have working navigation links', async ({ page }) => {
+test.skip('should have working navigation links', async ({ page }) => {
   // Assumes page state from previous test, or that navigation exists
   const gettingStartedLink = page.getByRole('link', { name: /getting\s*started/i }).first();
 ```

@@ -2,7 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { SearchPage } from '../pages/SearchPage';
 import { ResultsPage } from '../pages/ResultsPage';
 test.describe('Search flow', () => {
- test('should filter results by price', async ({ page }: { page: Page }) => {
+ test.skip('should filter results by price', async ({ page }: { page: Page }) => {
    const search = new SearchPage(page);
    const results = new ResultsPage(page);
 

@@ -15,7 +15,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Playwright docs redundant spec', () => {
-  test('should open docs from homepage again', async ({ page }) => {
+  test.skip('should open docs from homepage again', async ({ page }) => {
     await page.goto('http://playwright.dev');
     await page.waitForTimeout(4000);  // ❌ PROBLEM: Hard-coded timeout, flaky
 
@@ -28,7 +28,7 @@ test.describe('Playwright docs redundant spec', () => {
     await expect(page.locator('h1')).toContainText('Installation');
   });
 
-  test('should search in docs using obsolete selector', async ({ page }) => {
+  test.skip('should search in docs using obsolete selector', async ({ page }) => {
     await page.goto('http://playwright.dev/docs/intro');
     await page.waitForTimeout(3000);  // ❌ PROBLEM: Hard-coded timeout
 
@@ -42,7 +42,7 @@ test.describe('Playwright docs redundant spec', () => {
     await expect(page.locator('body')).toContainText('locator');
   });
 
-  test('should verify Java section exists', async ({ page }) => {
+  test.skip('should verify Java section exists', async ({ page }) => {
     await page.goto('http://playwright.dev/docs/intro');
     await page.waitForTimeout(3000);  // ❌ PROBLEM: Hard-coded timeout
 
@@ -102,7 +102,7 @@ test.describe('TC-NAV: Playwright Site Navigation & Docs Access', () => {
    * 
    * Note: Documentation content (h1 text) varies; test navigation instead
    */
-  test('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
+  test.skip('TC-NAV-002-DOCS: User can navigate to docs from homepage', async () => {
     // Arrange: Navigate to home and wait for navigation to load
     await navigationPage.navigateToHome();
     // ✅ FIX: Element-based wait (auto-retry) instead of hard-coded timeout

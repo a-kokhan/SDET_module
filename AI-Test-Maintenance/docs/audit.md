@@ -34,7 +34,7 @@ The refactored navigation tests demonstrate excellent architectural improvements
 - **Current:** Comments reference "Manual Test Alignment" informally
 - **Example of Gap:** 
   ```typescript
-  test('should display navigation buttons: Docs, API, Community', async () => {
+  test.skip('should display navigation buttons: Docs, API, Community', async () => {
     // No test case ID. If manual tests change, no way to track mapping
   ```
 - **Impact:** 
@@ -78,7 +78,7 @@ The refactored navigation tests demonstrate excellent architectural improvements
 - **Example of Missing Test:**
   ```typescript
   // THIS TEST DOES NOT EXIST:
-  test('should handle case when navigation container fails to load', async () => {
+  test.skip('should handle case when navigation container fails to load', async () => {
     await page.route('**/playwright.dev/**', route => route.abort());
     await navigationPage.navigateToHome();
     // Should gracefully handle timeout or error
@@ -285,16 +285,16 @@ The refactored navigation tests demonstrate excellent architectural improvements
 - **Location:** Lines 57, 126, 236 (test descriptions)
 - **Current Names:**
   ```typescript
-  test('should display navigation buttons: Docs, API, Community', ...)
-  test('should have working navigation links', ...)
-  test('should support keyboard navigation', ...)
+  test.skip('should display navigation buttons: Docs, API, Community', ...)
+  test.skip('should have working navigation links', ...)
+  test.skip('should support keyboard navigation', ...)
   ```
 - **Issue:** Generic BDD style ("should display buttons") lacks *user scenario* or *business value*
 - **Better Examples (User-Centric):**
   ```typescript
-  test('User can locate and access documentation via Getting Started navigation link', ...)
-  test('Navigation links correctly redirect to expected pages without losing session state', ...)
-  test('Users relying on keyboard can navigate all features without mouse', ...)
+  test.skip('User can locate and access documentation via Getting Started navigation link', ...)
+  test.skip('Navigation links correctly redirect to expected pages without losing session state', ...)
+  test.skip('Users relying on keyboard can navigate all features without mouse', ...)
   ```
 - **Missing Context:** Why do these tests matter? What user problem do they solve?
 - **Impact:** New team members can't understand *why* tests exist, only *what* they check
@@ -523,8 +523,8 @@ The refactored navigation tests demonstrate excellent architectural improvements
 
 | Priority | Issue # | Issue | File/Location | Recommended Fix | Effort |
 |----------|---------|-------|---------------|-----------------|--------|
-| **1** | #1–2 | No Test Case IDs / Traceability | Lines 29, 57, 126, 236 | Add formal TC-IDs (TC-NAV-001, TC-NAV-002, TC-NAV-003) to test().describe block and test() blocks; create `TEST_MAPPING.md` with requirement links | 30 min |
-| **2** | #3 | Missing Negative Test Cases | All tests | Create new test: `test('should handle missing navigation elements')` with assertion on count = 0 recovery | 1 hour |
+| **1** | #1–2 | No Test Case IDs / Traceability | Lines 29, 57, 126, 236 | Add formal TC-IDs (TC-NAV-001, TC-NAV-002, TC-NAV-003) to test.skip().describe block and test.skip() blocks; create `TEST_MAPPING.md` with requirement links | 30 min |
+| **2** | #3 | Missing Negative Test Cases | All tests | Create new test: `test.skip('should handle missing navigation elements')` with assertion on count = 0 recovery | 1 hour |
 | **3** | #14 | Boolean Assertions Anti-Pattern | Lines 93–95, 243 | Replace `.toBe(true)` with content assertions (e.g., `.toContainText()`, `.toBeVisible()` on actual elements) | 45 min |
 | **4** | #6 | Console Errors Not Checked in All Tests | Lines 103–105 (Test 1 only) | Move console error verification to `test.afterEach()` hook; apply to all tests | 20 min |
 
@@ -543,7 +543,7 @@ The refactored navigation tests demonstrate excellent architectural improvements
 | Priority | Issue # | Issue | File/Location | Recommended Fix | Effort |
 |----------|---------|-------|---------------|-----------------|--------|
 | **10** | #4 | Missing Edge Cases | All tests | Create tests for: mobile viewport, slow network simulations, race conditions (click before load), disabled elements | 1.5 hours |
-| **11** | #5 | Missing Error Recovery Testing | All tests | Add tests: `test('should recover from navigation timeout')`, `test('should handle network error gracefully')` | 1.5 hours |
+| **11** | #5 | Missing Error Recovery Testing | All tests | Add tests: `test.skip('should recover from navigation timeout')`, `test.skip('should handle network error gracefully')` | 1.5 hours |
 | **12** | #13 | Test Names Lack Business Context | Lines 57, 126, 236 | Rename tests to user-centric: "User can navigate to docs via Getting Started link", "Navigation maintains session across page changes" | 45 min |
 | **13** | #19 | No Accessibility Compliance | All tests | Add ARIA assertions: `toHaveAttribute('role', 'link')`, `toHaveAttribute('aria-label', ...)`, focus order validation | 1.5 hours |
 | **14** | #20 | Security: No Redirect Validation | Lines 111, 158 | Add assertion after navigation: `expect(page.url()).toMatch(/^https:\/\/playwright\.dev\//)` | 30 min |
@@ -690,8 +690,8 @@ The following patch implements Findings #1–4, #6, #14–15, and #4 (edge case)
     * - Manual Test Step 5: "Locate 'Community' navigation element"
     * - Manual Test Step 6: "Verify all navigation buttons are clickable"
     */
--  test('should display navigation buttons: Docs, API, Community', async () => {
-+  test('TC-NAV-001: should display primary navigation buttons (Docs, API, Community)', async () => {
+-  test.skip('should display navigation buttons: Docs, API, Community', async () => {
++  test.skip('TC-NAV-001: should display primary navigation buttons (Docs, API, Community)', async () => {
      // STEP 1: Navigate to main page
      await navigationPage.navigateToHome();
  
@@ -766,8 +766,8 @@ The following patch implements Findings #1–4, #6, #14–15, and #4 (edge case)
     * - Manual Test Step 3: "Navigate back to main page"
     * - Manual Test Step 4: "Verify Community section is accessible"
     */
--  test('should have working navigation links', async () => {
-+  test('TC-NAV-002: should navigate to docs page and return to main page', async () => {
+-  test.skip('should have working navigation links', async () => {
++  test.skip('TC-NAV-002: should navigate to docs page and return to main page', async () => {
      // STEP 1: Navigate to main page
      await navigationPage.navigateToHome();
  
@@ -853,8 +853,8 @@ The following patch implements Findings #1–4, #6, #14–15, and #4 (edge case)
     * Manual Test Alignment:
     * - Manual Test Note: "Navigation should be accessible via keyboard (Tab key)"
     */
--  test('should support keyboard navigation', async () => {
-+  test('TC-NAV-003: should support keyboard navigation for accessibility', async () => {
+-  test.skip('should support keyboard navigation', async () => {
++  test.skip('TC-NAV-003: should support keyboard navigation for accessibility', async () => {
      // STEP 1: Navigate to main page
      await navigationPage.navigateToHome();
  
@@ -882,7 +882,7 @@ The following patch implements Findings #1–4, #6, #14–15, and #4 (edge case)
 +   * 
 +   * Edge Case Scenario: What happens if a navigation link becomes disabled or hidden?
 +   */
-+  test('TC-NAV-004: should gracefully handle disabled/hidden navigation elements (edge case)', async () => {
++  test.skip('TC-NAV-004: should gracefully handle disabled/hidden navigation elements (edge case)', async () => {
 +    // STEP 1: Navigate to main page
 +    await navigationPage.navigateToHome();
 +

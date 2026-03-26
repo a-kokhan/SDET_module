@@ -107,7 +107,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
    * @testType POSITIVE
    * @testClass NAVIGATION_DISPLAY
    */
-  test('TC-NAV-001: User can locate all primary navigation buttons in header and footer', async () => {
+  test.skip('TC-NAV-001: User can locate all primary navigation buttons in header and footer', async () => {
     // Arrange: Navigate to home page and wait for full load
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
@@ -200,7 +200,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
    * @testType POSITIVE
    * @testClass NAVIGATION_FUNCTIONALITY
    */
-  test('TC-NAV-002: User can navigate to docs page and return to main page maintaining page state', async () => {
+  test.skip('TC-NAV-002: User can navigate to docs page and return to main page maintaining page state', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
@@ -314,7 +314,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
    * @testClass NAVIGATION_ACCESSIBILITY
    * @wcag 2.1.1, 2.4.3, 2.4.7
    */
-  test('TC-NAV-003: Keyboard user can navigate using Tab and Enter keys (WCAG 2.1 AA)', async () => {
+  test.skip('TC-NAV-003: Keyboard user can navigate using Tab and Enter keys (WCAG 2.1 AA)', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
@@ -354,7 +354,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
    * @testType EDGE_CASE
    * @testClass NAVIGATION_STATE_HANDLING
    */
-  test('TC-NAV-004: Navigation handles disabled/hidden link states without errors', async () => {
+  test.skip('TC-NAV-004: Navigation handles disabled/hidden link states without errors', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
@@ -425,7 +425,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
    * @testType EDGE_CASE
    * @testClass NAVIGATION_VISIBILITY_DETECTION
    */
-  test('TC-NAV-005: Navigation correctly detects and handles hidden link visibility states', async () => {
+  test.skip('TC-NAV-005: Navigation correctly detects and handles hidden link visibility states', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();

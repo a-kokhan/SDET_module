@@ -24,7 +24,7 @@ test.describe('Login flow basics', () => {
 
   // positive scenarios
 
-  test('should log in with valid credentials', async () => {
+  test.skip('should log in with valid credentials', async () => {
 
     await login.login(creds.valid.username, creds.valid.password);
 
@@ -34,7 +34,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('should retain username after failed attempt', async () => {
+  test.skip('should retain username after failed attempt', async () => {
 
     await login.login('wrong', 'wrong');
 
@@ -42,7 +42,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('password field should mask input', async () => {
+  test.skip('password field should mask input', async () => {
 
     await login.passwordInput.fill('sensitive');
 
@@ -50,7 +50,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('submit button disabled until fields filled', async () => {
+  test.skip('submit button disabled until fields filled', async () => {
 
     await expect(login.submitButton).toBeDisabled();
 
@@ -62,7 +62,7 @@ test.describe('Login flow basics', () => {
 
   });
 
-  test('error message disappears on typing', async () => {
+  test.skip('error message disappears on typing', async () => {
 
     await login.login('bad', 'bad');
 

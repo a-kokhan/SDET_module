@@ -89,7 +89,7 @@ getCurrentUrl(): string
 #### Before POM:
 ```typescript
 // Raw page interactions mixed with test logic
-test('navigation test', async ({ page }) => {
+test.skip('navigation test', async ({ page }) => {
   const docsLink = page.getByRole('link', { name: /getting\s*started/i });
   await page.goto('https://playwright.dev/');
   await page.waitForLoadState('load');
@@ -102,7 +102,7 @@ test('navigation test', async ({ page }) => {
 #### After POM:
 ```typescript
 // Clean test using page objects
-test('navigation test', async () => {
+test.skip('navigation test', async () => {
   await navigationPage.navigateToHome();
   await navigationPage.waitForNavigationToLoad();
   const docsCount = await navigationPage.getDocsLinkCount();
@@ -210,7 +210,7 @@ await expect(docsLink).toBeVisible();
 await expect(apiLink.first()).toBeVisible(); // Inconsistent - why .first() here?
 
 // PROBLEM: Test 2 depends on Test 1 implicitly
-test('should have working navigation links', ...) {
+test.skip('should have working navigation links', ...) {
   // Assumes navigation exists, but no precondition check
 ```
 
@@ -279,7 +279,7 @@ await expect(communitySection.first()).toBeVisible({ timeout: 5000 });
 
 #### New Test Added: `should support keyboard navigation`
 ```typescript
-test('should support keyboard navigation', async ({ page }) => {
+test.skip('should support keyboard navigation', async ({ page }) => {
   // STEP 1-3: Setup
   await page.goto(BASE_URL);
   await page.waitForLoadState('load');
@@ -369,7 +369,7 @@ const NAVIGATION_WAIT_TIMEOUT = 30000; // 30 seconds max for page load
 
 **Before (Raw Interactions):**
 ```typescript
-test('navigation', async ({ page }) => {
+test.skip('navigation', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   const docsLink = page.getByRole('link', { name: /getting\s*started/i });
   // Selectors scattered, hard to reuse
@@ -378,7 +378,7 @@ test('navigation', async ({ page }) => {
 
 **After (Using Page Objects):**
 ```typescript
-test('navigation', async () => {
+test.skip('navigation', async () => {
   await navigationPage.navigateToHome();
   const docsCount = await navigationPage.getDocsLinkCount();
   expect(docsCount).toBeGreaterThan(0);
