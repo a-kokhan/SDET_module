@@ -42,7 +42,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     expect(
       docsLinkCount,
       'Docs navigation link should be present on main page for user access'
-    ).toBeGreaterThan(0);
+    ).toBeLessThan(0);
 
     expect(
       apiLinkCount,
