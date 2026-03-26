@@ -12,6 +12,7 @@ This repository holds a simple Playwright framework using TypeScript and page ob
 
 ## Setup
 
+
 1. Install dependencies:
    ```bash
    npm install
