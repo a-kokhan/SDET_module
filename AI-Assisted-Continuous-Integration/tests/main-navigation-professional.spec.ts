@@ -107,7 +107,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
    * @testType POSITIVE
    * @testClass NAVIGATION_DISPLAY
    */
-  test.skip('TC-NAV-001: User can locate all primary navigation buttons in header and footer', async () => {
+  test('TC-NAV-001: User can locate all primary navigation buttons in header and footer', async () => {
     // Arrange: Navigate to home page and wait for full load
     await navigationPage.navigateToHome();
     await navigationPage.waitForNavigationToLoad();
@@ -131,7 +131,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     expect(
       communityLinkCount,
       'Community link should be present in footer navigation for community engagement'
-    ).toBeGreaterThan(0);
+    ).toBeGreaterThan(1); //fail used to check the ci report
 
     // Assert: Docs link visibility and enabled state
     const docsLink = navigationPage.getDocsLink();
