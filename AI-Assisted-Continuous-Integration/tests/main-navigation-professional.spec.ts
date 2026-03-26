@@ -121,7 +121,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     expect(
       docsLinkCount,
       'Docs navigation link should be present on main page for user access'
-    ).toBeGreaterThan(0);
+    ).toBeLessThan(0);
 
     expect(
       apiLinkCount,
@@ -131,7 +131,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     expect(
       communityLinkCount,
       'Community link should be present in footer navigation for community engagement'
-    ).toBeGreaterThan(1); //fail used to check the ci report
+    ).toBeGreaterThan(0);
 
     // Assert: Docs link visibility and enabled state
     const docsLink = navigationPage.getDocsLink();
