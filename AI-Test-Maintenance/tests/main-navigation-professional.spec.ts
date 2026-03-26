@@ -2,68 +2,19 @@ import { test, expect, type Page } from '@playwright/test';
 import { NavigationPage } from '../pages/NavigationPage';
 import { PlaywrightDocsPage } from '../pages/PlaywrightDocsPage';
 
-/**
- * PLAYWRIGHT NAVIGATION TEST SUITE (Professional Edition v3.0)
- * 
- * Purpose: Validate Playwright.dev main page navigation functionality, including
- * positive flows, edge cases, and accessibility compliance.
- * 
- * Architecture: Page Object Model (POM) for maintainability and reusability
- * Page Objects:
- *   - NavigationPage: Encapsulates all navigation-related locators and methods
- *   - PlaywrightDocsPage: Represents the Playwright documentation pages
- * 
- * Quality Improvements:
- *   - 64% code reduction through POM pattern implementation
- *   - Element-based waits (eliminated flaky networkidle strategy)
- *   - Formal test case traceability (TC-NAV-001 format)
- *   - Explicit assertion messages for CI debugging
- *   - Edge case coverage (disabled/hidden states)
- *   - Accessibility testing (keyboard navigation)
- *   - Console error monitoring across all tests
- * 
- * Compliance:
- *   - WCAG 2.1 accessibility standards (keyboard, focus)
- *   - Playwright best practices (role-based locators, web-first assertions)
- *   - Enterprise-grade test architecture (reusable, maintainable, debuggable)
- * 
- * @version 3.0
- * @author QA Team
- * @date 2026-03-25
- */
 
 test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
   let navigationPage: NavigationPage;
   let docsPage: PlaywrightDocsPage;
 
-  /**
-   * Setup Hook: Initialize page objects and monitoring
-   * 
-   * Ensures:
-   *   - Fresh page object instances for each test (test isolation)
-   *   - Console error monitoring enabled (catches JS errors early)
-   *   - Page state is clean and ready for navigation testing
-   * 
-   * @hooks beforeEach
-   */
+ 
   test.beforeEach(async ({ page }) => {
     navigationPage = new NavigationPage(page);
     docsPage = new PlaywrightDocsPage(page);
     navigationPage.monitorConsoleErrors();
   });
 
-  /**
-   * Teardown Hook: Validate no console errors occurred
-   * 
-   * Ensures:
-   *   - Navigation interactions don't generate JS errors
-   *   - Broken links or missing assets are detected
-   *   - Silent failures (errors without exceptions) are caught
-   * 
-   * Guard: Only validates if navigationPage was successfully initialized (test ran)
-   * 
-   * @hooks afterEach
-   */
+  
   test.afterEach(async () => {
     // Null check: Only validate console errors if test initialization succeeded
     if (!navigationPage) {
@@ -77,36 +28,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     ).toHaveLength(0);
   });
 
-  /**
-   * TC-NAV-001: Primary Navigation Button Visibility
-   * 
-   * User Story:
-   *   As a visitor to Playwright.dev, I want to see all primary navigation buttons
-   *   (Docs, API, Community) prominently displayed in the header/footer so I can
-   *   quickly access different sections of the documentation.
-   * 
-   * Acceptance Criteria:
-   *   ✓ Docs/Getting Started link is visible and enabled
-   *   ✓ API reference link is visible and enabled
-   *   ✓ Community link is visible and enabled
-   *   ✓ All links are clickable (not disabled)
-   *   ✓ No JavaScript console errors during page load
-   * 
-   * Related Issues Fixed:
-   *   - #1: Overlapping regex patterns → Distinct selectors in POM
-   *   - #2: Broad community selector → Specific community link selector
-   *   - #3: No stable selectors → Centralized in page object
-   *   - #4: Flaky networkidle waits → Element-based waits
-   *   - #7: Multiple .first() calls → Explicit count assertions
-   *   - #10: No count verification → Added count validation
-   *   - #15: No assertion messages → Added descriptive messages
-   * 
-   * Manual Test Alignment:
-   *   - Manual Test Steps 3–6: Locate and verify navigation buttons
-   * 
-   * @testType POSITIVE
-   * @testClass NAVIGATION_DISPLAY
-   */
+ 
   test('TC-NAV-001: User can locate all primary navigation buttons in header and footer', async () => {
     // Arrange: Navigate to home page and wait for full load
     await navigationPage.navigateToHome();
@@ -170,36 +92,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     ).toBeEnabled();
   });
 
-  /**
-   * TC-NAV-002: Navigation Link Functionality and Flow
-   * 
-   * User Story:
-   *   As a documentation reader, I want to click navigation links and be directed
-   *   to the correct pages (Docs, API, Community), then navigate back to the main
-   *   page without losing context or session state.
-   * 
-   * Acceptance Criteria:
-   *   ✓ Clicking Docs link redirects to docs page
-   *   ✓ Docs page content is loaded (heading visible, sidebar present)
-   *   ✓ Back navigation returns to main page without errors
-   *   ✓ Navigation elements reappear on main page after return
-   *   ✓ No console errors during navigation transitions
-   * 
-   * Related Issues Fixed:
-   *   - #5: No explicit element waits → Added waitForNavigationToLoad()
-   *   - #6: Hard-coded timeouts → Configurable timeouts with comments
-   *   - #8: Inconsistent selectors → Standardized via page object
-   *   - #9: Implicit test dependencies → Explicit setup per test
-   *   - #14: Boolean assertions → Content-based assertions (.toContainText, .toBeVisible)
-   *   - #15: No assertion messages → Added descriptive messages
-   *   - #17: Missing click side effects → Added intermediate assertions
-   * 
-   * Manual Test Alignment:
-   *   - Manual Test Steps 1–4: Navigation, page verification, and return flow
-   * 
-   * @testType POSITIVE
-   * @testClass NAVIGATION_FUNCTIONALITY
-   */
+  
   test('TC-NAV-002: User can navigate to docs page and return to main page maintaining page state', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
@@ -282,38 +175,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     ).toBeVisible({ timeout: 5000 });
   });
 
-  /**
-   * TC-NAV-003: Keyboard Navigation Accessibility
-   * 
-   * User Story:
-   *   As a keyboard-only user (accessibility requirement), I want to navigate all
-   *   primary navigation links using keyboard (Tab, Enter) without requiring a mouse,
-   *   ensuring full WCAG 2.1 Keyboard Access compliance.
-   * 
-   * Acceptance Criteria:
-   *   ✓ All navigation buttons are keyboard-accessible via Tab
-   *   ✓ Navigation buttons can be activated via Enter key
-   *   ✓ Focus order is logical and expected
-   *   ✓ No keyboard traps or inaccessible elements
-   *   ✓ WCAG 2.1 Level AA compliance verified
-   * 
-   * Related Issues Fixed:
-   *   - #13: No keyboard accessibility testing → Added verifyKeyboardNavigation()
-   *   - #15: No assertion messages → Added descriptive messages
-   *   - #18: Superficial keyboard test → Expanded test coverage
-   * 
-   * WCAG 2.1 Standards:
-   *   - 2.1.1 Keyboard: All functionality available via keyboard
-   *   - 2.4.3 Focus Order: Navigation order is logical
-   *   - 2.4.7 Focus Visible: Focus indicators are visible
-   * 
-   * Manual Test Alignment:
-   *   - Manual Test Note: "Navigation should be accessible via keyboard (Tab key)"
-   * 
-   * @testType POSITIVE
-   * @testClass NAVIGATION_ACCESSIBILITY
-   * @wcag 2.1.1, 2.4.3, 2.4.7
-   */
+  
   test('TC-NAV-003: Keyboard user can navigate using Tab and Enter keys (WCAG 2.1 AA)', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
@@ -327,33 +189,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     ).toBe(true);
   });
 
-  /**
-   * TC-NAV-004: Disabled/Hidden Link State Handling (Edge Case)
-   * 
-   * User Story:
-   *   As a QA engineer, I want to validate that navigation gracefully handles
-   *   edge cases (disabled or hidden links) so the application doesn't crash
-   *   or display incorrect states when elements become unavailable.
-   * 
-   * Acceptance Criteria:
-   *   ✓ Hidden elements are correctly detected as not visible
-   *   ✓ Page can recover and display elements after reload
-   *   ✓ No console errors during state transitions
-   *   ✓ Visibility detection is accurate for all hide methods
-   * 
-   * Related Issues Fixed:
-   *   - #4: Missing edge case coverage → Added edge case test
-   *   - #5: No error recovery testing → Added recovery validation
-   *   - #15: No assertion messages → Added descriptive messages
-   * 
-   * Edge Cases Tested:
-   *   1. Element with display: none (removed from document flow)
-   *   2. Element with visibility: hidden (occupies space, invisible)
-   *   3. Element with opacity: 0 (fully transparent, potentially interactive)
-   * 
-   * @testType EDGE_CASE
-   * @testClass NAVIGATION_STATE_HANDLING
-   */
+  
   test('TC-NAV-004: Navigation handles disabled/hidden link states without errors', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
@@ -397,34 +233,7 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     ).toBeVisible({ timeout: 5000 });
   });
 
-  /**
-   * TC-NAV-005: Link Visibility State Detection (Hidden Scenarios)
-   * 
-   * User Story:
-   *   As a QA engineer, I want to verify that navigation visibility detection
-   *   accurately identifies links that are hidden via different CSS methods
-   *   (display:none, visibility:hidden, opacity:0) so test assertions are reliable.
-   * 
-   * Acceptance Criteria:
-   *   ✓ display:none links are detected as not visible
-   *   ✓ visibility:hidden links are detected as not visible
-   *   ✓ opacity:0 links are detected as not visible
-   *   ✓ All links recover visibility after restoration
-   *   ✓ Functionality is unchanged after state transitions
-   * 
-   * Related Issues Fixed:
-   *   - #4: Edge case coverage (hidden/invisible states)
-   *   - #15: Explicit assertion messages for debugging
-   *   - #11: Console monitoring across all state transitions
-   * 
-   * Technical Notes:
-   *   - Uses page.evaluate() for CSS manipulation (simulates real-world scenarios)
-   *   - Tests Playwright's visibility detection accuracy
-   *   - Validates recovery after CSS modifications
-   * 
-   * @testType EDGE_CASE
-   * @testClass NAVIGATION_VISIBILITY_DETECTION
-   */
+  
   test('TC-NAV-005: Navigation correctly detects and handles hidden link visibility states', async () => {
     // Arrange: Navigate to main page
     await navigationPage.navigateToHome();
@@ -545,5 +354,4 @@ test.describe('TC-NAV: Playwright Site Navigation Test Suite', () => {
     ).toHaveLength(0);
   });
 });
-
 

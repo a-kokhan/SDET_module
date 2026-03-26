@@ -1,5 +1,8 @@
 import { Page } from '@playwright/test';
 export class SearchPage {
+ productResult(name: string) {
+   throw new Error('Method not implemented.');
+ }
  private page: Page;
  constructor(page: Page) {
    this.page = page;

@@ -1,8 +1,10 @@
 // path: tests/e2e/profile.spec.ts
 import { test, expect, type Page } from '@playwright/test';
-import { LoginPage } from '../../src/pages/LoginPage';
-import { ProfilePage } from '../../src/pages/ProfilePage';
-import { users } from '../../src/fixtures/users';
+import { LoginPage } from '../pages/LoginPage';
+import { ProfilePage } from '../pages/ProfilePage';
+import { users } from '../fixtures/users';
+
+
 test.describe('Profile avatar upload flow', () => {
  test.beforeEach(async ({ page }: { page: Page }) => {
    const login = new LoginPage(page);
