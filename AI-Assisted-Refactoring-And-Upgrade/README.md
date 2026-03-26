@@ -28,4 +28,4 @@ This repository holds a simple Playwright framework using TypeScript and page ob
 - Add methods for interactions and assertions.
 - Write tests in `tests/` importing the page objects.
 
-This minimal example demonstrates the page-object pattern and can be extended as needed.
+This minimal example demonstrates that the page-object pattern and can be extended as needed.
