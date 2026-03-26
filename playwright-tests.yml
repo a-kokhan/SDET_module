@@ -1,9 +1,7 @@
 name: Playwright Tests
 
 on:
-
-  pull_request:
-
+  push:
     branches: [ main ]
 
 concurrency:
@@ -47,12 +45,13 @@ jobs:
           node-version: lts/*
 
           cache: yarn
+          cache-dependency-path: yarn.lock
 
       # Install dependencies with immutable lock file
 
       - name: Install dependencies
 
-        run: yarn install --immutable --immutable-cache --check-cache
+        run: yarn install --frozen-lockfile
 
       # Install Playwright browsers and system dependencies
 

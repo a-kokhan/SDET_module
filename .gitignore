@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# Test results
+test-results/
+playwright-report/
+html-report/
+.auth/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
